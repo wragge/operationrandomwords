@@ -17,14 +17,14 @@ with open('verbs.pck', 'rb') as verb_file:
 phrases = [u'protecting Australia from',
 	u'defending Australia’s',
 	u'returning Australia’s',
-	u'{} illegal'.format(p.present_participle(random.choice(verbs)))]
+	u'{} illegal']
 
 def create_message():
 	return (u'Operation {} {}'.format(
 			random.choice(adjs).title(), 
 			random.choice(nouns).title()),
 		u'{} {}'.format(
-			random.choice(phrases),
+			random.choice(phrases).format(p.present_participle(random.choice(verbs))),
 			p.plural(random.choice(nouns)))
 		)
 
